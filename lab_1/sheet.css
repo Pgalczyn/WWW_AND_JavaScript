@@ -1,0 +1,103 @@
+aside  {
+    /* Specyfikacja wyglądu */
+
+    width: 40em;
+    float: right;
+    margin: 1.2em;
+}
+
+
+header {
+    /* Specyfikacja wyglądu */
+
+
+}
+main {
+    /* Specyfikacja wyglądu */
+
+    width: 30em;
+    margin:1em 0;
+
+}
+nav {
+    /* Specyfikacja wyglądu */
+
+    width: 8em;
+    margin: 1em;
+}
+nav ul {
+    /* Specyfikacja wyglądu */
+}
+nav li {
+    /* Specyfikacja wyglądu */
+}
+.main{
+    float: left;
+}
+
+h1,h2{
+    margin: 0 1em;
+}
+
+h2{
+    font-size: 2em;
+}
+
+.azure{
+    background-color: #76fde6;
+    border: solid 2px black;
+}
+
+@keyframes pulse {
+
+    from{
+        transform: scaleX(.4);
+    }
+
+    to{
+       transform: scaleX(1);
+    }
+
+}
+footer {
+    /* Specyfikacja wyglądu */
+    animation: pulse 2s infinite linear alternate;
+    clear: both;
+    padding: 1em;
+    text-align: left;
+    font-size:1.2em;
+}
+
+@keyframes colorChangeH1 {
+    from {
+        color: black;
+    }
+    to {
+        color: red;
+    }
+}
+
+h1 {
+    font-size: 2.5em;
+    animation: colorChangeH1 linear;
+    animation-timeline: scroll();
+}
+
+
+
+@media (max-width: 1200px) {
+
+    aside{
+        width: 100%;
+        float: left;
+        margin: 0 0 1em 0;
+    }
+    main{
+        width: 100%
+    }
+    nav{
+        width: 100%;
+        margin: 1em 0;
+    }
+
+}
