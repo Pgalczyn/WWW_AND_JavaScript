@@ -1,0 +1,48 @@
+<!-- @author Stanisław Polak <polak@agh.edu.pl> -->
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>Plik 'zadanie1D.html'</title>
+    <meta charset="UTF-8">
+    <script src="skrypt.js"></script>
+    <script>
+        // function funkcja_zwrotna() {
+        //     let formZ = document.forms["form1"];
+        //     x = formZ.elements["pole_tekstowe"].value;
+        //     x_type = typeof x;
+        //     y = formZ.elements["pole_liczbowe"].value;
+        //     y_type = typeof y;
+        //     console.group("results");
+        //     console.log(x + ":" + x_type);
+        //     console.log(y + ":" + y_type);
+        //     console.groupEnd();
+        // }
+    </script>
+</head>
+<body>
+<h1>Plik 'zadanie1D.html'</h1>
+
+<form onInput="wynik.value = parseInt(pole_tekstowe.value) + parseInt(pole_liczbowe.value)" name="form1">
+    <input id="pole_tekstowe" name="pole_tekstowe" type="text" placeholder="Wprowadź tekst">
+    +
+    <input id="pole_liczbowe" name="pole_liczbowe" type="number" placeholder="Wprowadź liczbę">
+    =
+    <output name="wynik" for="pole_tekstowe pole_liczbowe">Tu pojawi się wynik obliczeń</output>
+    <br>
+    <input type="button" onclick="funkcja_zwrotna()" value="Wypisz">
+</form>
+
+
+<script>
+
+    for (let i = 0; i < 4; i++) {
+
+        let x =  window.prompt();
+        let y = typeof(x)
+        console.log(x + ":" + y);
+    }
+
+</script>
+</body>
+</html>
