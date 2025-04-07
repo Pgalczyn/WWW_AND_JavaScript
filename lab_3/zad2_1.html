@@ -2,29 +2,28 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet"
-          href="sheet.css"
           media="screen"
           type="text/css">
     <title>Tytuł strony</title>
 </head>
 <body>
 <form action="">
-    <input type = button value="set">
-    <input type = button value="delete">
-    <input type = button value="add">
+    <input type = button value="set" id="setBtn">
+    <input type = button value="delete" id ="deleteBtn">
+    <input type = button value="add" id ="addBtn">
 
 
 </form>
 
-<header class='azure'>
+<header >
     <!-- Page title -->
     <!-- Background color: #EFF -->
     <!-- Border color: #A8A8A8 -->
 
     <h1>Tytuł strony</h1>
 </header>
-<div class="main">
-    <nav class='azure'>
+<div  id="mainContainer">
+    <nav>
         <!--Tutaj menu nawigacyjne / Here the navigation menu -->
         <!-- left & right margin: 25px -->
 
@@ -40,18 +39,17 @@
     </nav>
     <!-- Tutaj treść panelu bocznego / Here the content of the side panel-->
 
-    <main class='azure'>
+    <main >
         <!--Tutaj treść strony / Here the content of the page -->
 
         <h1>Treść strony</h1>
 
         <blockquote>
-            Natenczas Wojski chwycił na taśmie przypięty Swój róg bawoli, długi, cętkowany, kręty Jak wąż boa, oburącz do ust go przycisnął, Wzdął policzki jak banię, w oczach krwią zabłysnął, Zasunął wpół powieki, wciągnął w głąb pół brzucha I do płuc wysłał z niego cały zapas ducha, I zagrał: róg jak wicher, wirowatym dechem Niesie w puszczę muzykę i podwaja echem. Umilkli strzelcy, stali szczwacze zadziwieni Mocą, czystością, dziwną harmoniją pieni. Starzec cały kunszt, którym niegdyś w lasach słynął, Jeszcze raz przed uszami myśliwców rozwinął; Napełnił wnet, ożywił knieje i dąbrowy, Jakby psiarnię w nie wpuścił i rozpoczął łowy. Bo w graniu była łowów historyja krótka: Zrazu odzew dźwięczący, rześki: to pobudka; Potem jęki po jękach skomlą: to psów granie; A gdzieniegdzie ton twardszy jak grzmot: to strzelanie.
         </blockquote>
     </main>
 
 </div>
-<aside class='azure'>
+<aside >
     <h1>Panel boczny</h1>
 
     <h2>Ciekawe odsyłacze</h2>
@@ -72,17 +70,120 @@
 </aside>
 
 
-<footer class='azure'>
+<footer >
     <!-- Tutaj treść stopki / Here the content of the footer -->
     <a href="mailto:your.email.address">Imię Nazwisko</a>
 </footer>
 
 <script>
+    const mainContainer = document.querySelector('#mainContainer');
+    const main = document.querySelector('main');
+    const nav = document.querySelector('nav');
+    const h1andH2 = document.querySelectorAll('h1,h2');
+    const  aside = document.querySelector('aside');
+    const footer = document.querySelector('footer');
+    const header = document.querySelector('header');
+    const blockquote = document.querySelector('blockquote');
 
- const main = document.querySelector('main');
- const nav = document.querySelector('nav');
- const h1andH2 = document.querySelectorAll('h1,h2');
+    const SetButton = document.getElementById("setBtn");
+    const DeleteButton = document.getElementById("deleteBtn");
+    const AddButton = document.getElementById("addBtn");
+    const style = document.createElement('style');
 
+
+    SetButton.addEventListener("click", () => {
+
+        style.innerHTML = `
+        .azure {
+        background-color: #76fde6;
+        border: solid 2px black;
+        }
+        .main{
+            float: left;
+        }`
+
+        document.head.appendChild(style);
+
+
+        main.style.width = "30em";
+        main.style.margin = "1em 0";
+        main.classList.add("azure");
+
+        aside.style.width = "40em";
+        aside.style.float = "right";
+        aside.style.margin = "1.2em";
+        aside.classList.add("azure");
+
+
+        nav.style.width = "8em";
+        nav.style.margin = "1em";
+        nav.classList.add("azure");
+
+        mainContainer.classList.add("main");
+
+        h1andH2.forEach((h) => {
+            h.style.margin = "0 1em";
+        })
+
+        footer.classList.add("azure");
+        footer.style.padding = "1em"
+        footer.style.clear = "both";
+
+        header.classList.add("azure");
+
+    })
+
+    DeleteButton.addEventListener("click", () => {
+
+        document.head.appendChild(style);
+
+
+        main.style.width = "";
+        main.style.margin = "";
+        main.classList.remove("azure");
+
+        aside.style.width = "";
+        aside.style.float = "";
+        aside.style.margin = "";
+        aside.classList.remove("azure");
+
+
+        nav.style.width = "";
+        nav.style.margin = "";
+        nav.classList.remove("azure");
+
+        mainContainer.classList.remove("main");
+
+        h1andH2.forEach((h) => {
+            h.style.margin = "";
+        })
+
+        footer.classList.remove("azure");
+        footer.style.padding = ""
+        footer.style.clear = "";
+
+        header.classList.remove("azure");
+
+    })
+
+
+    const tekst = "Natenczas Wojski chwycił na taśmie przypięty Swój róg bawoli, długi, cętkowany, kręty Jak wąż boa, oburącz do ust go przycisnął, Wzdął policzki jak banię, w oczach krwią zabłysnął, Zasunął wpół powieki, wciągnął w głąb pół brzucha I do płuc wysłał z niego cały zapas ducha, I zagrał: róg jak wicher, wirowatym dechem Niesie w puszczę muzykę i podwaja echem. Umilkli strzelcy, stali szczwacze zadziwieni Mocą, czystością, dziwną harmoniją pieni. Starzec cały kunszt, którym niegdyś w lasach słynął, Jeszcze raz przed uszami myśliwców rozwinął; Napełnił wnet, ożywił knieje i dąbrowy, Jakby psiarnię w nie wpuścił i rozpoczął łowy. Bo w graniu była łowów historyja krótka: Zrazu odzew dźwięczący, rześki: to pobudka; Potem jęki po jękach skomlą: to psów granie; A gdzieniegdzie ton twardszy jak grzmot: to strzelanie."
+    const zdania  = tekst.split(".");
+
+    let counter = 0;
+    AddButton.addEventListener("click", () => {
+        const newSentence = document.createTextNode(zdania[counter].trim());
+        blockquote.appendChild(newSentence);
+        counter++;
+        console.log(counter);
+        console.log(zdania.length);
+        
+        if (counter == zdania.length) {
+
+            AddButton.disabled = true;
+
+        }
+    })
 
 
 
