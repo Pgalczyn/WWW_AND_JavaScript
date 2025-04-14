@@ -53,11 +53,6 @@
             }},
         {first_name:'Marysia' , last_name:'Lis',photo:"https://st2.depositphotos.com/4431055/11856/i/950/depositphotos_118562150-stock-photo-young-student-girl.jpg",
             notes:{
-                Matematyka: 0,
-                Polski: 0,
-                Angielski:0,
-                Niemiecki:0
-
             }},
     ]
 
@@ -87,14 +82,18 @@
 
             localStorage.setItem(key, JSON.stringify(newUser));
         }
+        else{
+            alert("such a user doesnt exist")
+        }
     }
 
     const StudentCard = ({student}) => {
-
+        const hasGrades = Object.values(student.notes).some(value => value !== 0);
         return (
             <>
-                <div className="card col-10  col-md-5 m-2 col-lg-5 col-xl-4 col-xxl-3 m-2  " >
-                    <img src={student.photo} alt="Student" width="100%" />
+                <div className={`card col-10 col-md-5 m-2 col-lg-5 col-xl-4 col-xxl-3 m-2 ${hasGrades ? "bg-light" : "bg-secondary"}`}>
+
+                <img src={student.photo} alt="Student" width="100%" />
                     <div className="card-body">
                         <h5 className="card-title">{student.first_name + " " + student.last_name}</h5>
                         <ul className="list-group list-group-flush">
@@ -113,6 +112,7 @@
     }
 
     const App = () =>{
+
 
         const [dataLocalStorage, setDataLocalStorage] = useState([]);
 
@@ -144,9 +144,9 @@
 
                     <label htmlFor="studentInput">Wzór:<br/> Imie Nazwisko przedmiot (opcjonalnie) ocena <br/>np. Jan
                         Kowalski Matematyka 5<br/></label>
-                    <input type="text" name="student" id="studentInput"/>
-                    <input type="button" value="Dodaj" id="add" onClick={() =>{ changeNote(document.getElementById("studentInput").value);handleLoadDataLocalStorage();}}/>
-                    <input type="button" value="Zmień" id="change" onClick={() => changeNote(document.getElementById("studentInput").value)} />
+                    <input type="text" name="student" id="studentInput" />
+                    <input type="button" value="Dodaj" id="add" onClick={() =>{ changeNote(document.getElementById("studentInput").value);handleLoadDataLocalStorage()}}/>
+                    <input type="button" value="Zmień" id="change" onClick={() => {changeNote(document.getElementById("studentInput").value);handleLoadDataLocalStorage()}} />
                     <input type="button" value="Wyświetl" id="show"/>
 
                 </form>
