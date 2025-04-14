@@ -1,15 +1,15 @@
 const students = [
-        {first_name:'Jan' , last_name:'Kowalski'},
-        {first_name:'Joanna' , last_name:'Ptak'},
-        {first_name:'Michał' , last_name:'Anioł'},
-        {first_name:'Marysia' , last_name:'Lis'},
+        {first_name:'Jan' , last_name:'Kowalski',photo:"https://www.investopedia.com/thmb/r-ykjZLW9I4RmbU-drQ3hrksqdM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-2130374028-337261d83cc5416eb5bd23f2905a44ee.jpg"},
+        {first_name:'Joanna' , last_name:'Ptak', photo:"https://st.depositphotos.com/1011643/4715/i/450/depositphotos_47157715-stock-photo-college-student-looking-up.jpg"},
+        {first_name:'Michał' , last_name:'Anioł',photo:"https://thumbs.dreamstime.com/b/high-school-student-29699566.jpg"},
+        {first_name:'Marysia' , last_name:'Lis',photo:"https://st2.depositphotos.com/4431055/11856/i/950/depositphotos_118562150-stock-photo-young-student-girl.jpg"},
 ]
 
 const subjectstable = [
         {subject:"Matematyka"},
         {subject:"Polski"},
         {subject:"Angielski"},
-        {subject:"Niemeicki"}
+        {subject:"Niemiecki"}
 ]
 
 let db
@@ -22,6 +22,7 @@ request.onupgradeneeded = (event) =>{
                const store = db.createObjectStore("first_name&last_name",{keyPath:"id",autoIncrement:true});
                store.createIndex("first_name","first_name",{unique:false});
                store.createIndex("last_name","last_name",{unique:false});
+                store.createIndex("photo","photo",{unique:false});
         }
 
         //tablica z przedmiotami
