@@ -66,6 +66,9 @@
                 }
                 }).then(response => response.json())
             .then(data => {
+                console.log("Odebrane dane:", data);
+                console.log("Typ:", typeof data);
+                console.log("Czy tablica:", Array.isArray(data));
                 setStudentsData(data);
             });
 
@@ -121,8 +124,8 @@
                     <label htmlFor="studentInput">Wzór:<br/> Imie Nazwisko przedmiot (opcjonalnie) ocena <br/>np. Jan
                         Kowalski Matematyka 5<br/></label>
                     <input type="text" name="student" id="studentInput" />
-                    <input type="button" value="Dodaj" id="add" onClick={() =>{ changeNote(document.getElementById("studentInput").value);handleLoadDataLocalStorage()}}/>
-                    <input type="button" value="Zmień" id="change" onClick={() => {changeNote(document.getElementById("studentInput").value);handleLoadDataLocalStorage()}} />
+                    <input type="button" value="Dodaj" id="add" onClick={() =>{ changeNote(document.getElementById("studentInput").value)}}/>
+                    <input type="button" value="Zmień" id="change" onClick={() => {changeNote(document.getElementById("studentInput").value)}} />
                     <input type="button" value="Wyświetl" id="show"/>
 
                 </form>

@@ -77,7 +77,7 @@ const server = http.createServer((req, res) => {
         })
         req.on('end', (chunk) => {
             const parsedData = JSON.parse(body);
-            fs.writeFileSync(dataFilepath, JSON.stringify(body,null,2), 'utf8');
+            fs.writeFileSync(dataFilepath, JSON.stringify(parsedData,null,2), 'utf8');
         })
 
     }
