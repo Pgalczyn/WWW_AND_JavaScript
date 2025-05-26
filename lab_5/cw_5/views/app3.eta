@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>APP_3</title>
+</head>
+<body>
+
+    <table  border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr>
+      <th>Imię</th>
+      <th>Nazwisko</th>
+      <th>Wydział</th>
+    </tr>
+
+    </thead>
+
+     <tbody>
+    <% it.students.forEach(student => { %>
+      <tr>
+        <td><%= student.fname %></td>
+        <td><%= student.lname %></td>
+        <td><%= student.faculty %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+
+
+    </table>
+
+  
+</body>
+</html>
